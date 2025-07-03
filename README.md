@@ -8,7 +8,7 @@ A web-based **Online Examination System** developed as a **VTU mini project** us
 - 🏫 **University**: Visvesvaraya Technological University (VTU)  
 - 🎓 **Course**: Bachelor of Engineering (BE) – Computer Science  
 - 🧑‍💻 **Type**: Mini Project  
-- 👨‍🎓 **Developed By**: Nireekshith B R [4HG21CS028]  
+- 👨‍🎓 **Developed By**: Puneeth D[4HG21CS035]  
 - 📅 **Year**: JAN 2024  
 - 🧑‍🏫 **Guide**: Dr. K C Ravishankar  
 
