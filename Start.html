@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Paper</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+        h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 15px;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .right {
+            text-align: right;
+        }
+        form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1000px;
+    border-right: 300%;
+    max-width: 800px;
+     margin: 0 auto;
+     text-align: center;
+}
+button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+        .marks {
+            float: right;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+
+        #timer {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #333;
+            animation: rotate 1s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+   
+       
+
+    <div class="header">
+        <h1>CBCS SCHEME</h1>
+    </div>
+
+    <div class="left">
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" name="usn" placeholder="Enter USN">
+    </div>
+
+    <div class="right">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Enter Subject">
+    </div>
+
+    <h3>Fifth Semester B.E/B.Tech. Degree Examination, March/April 2024</h3>
+
+    <h2>Automata and Compailer Design</h2>
+    <div class="left">
+        <h5>Time: 2hrs</h5>
+        <h2>Module-1</h2>
+        
+        <label for="q1">1. What is automata theory?</label>
+        <input type="radio" name="q1" value="a"> a. Study of automatic machinery<br>
+        <input type="radio" name="q1" value="b"> b. Study of abstract machines and problems they solve<br>
+        <input type="radio" name="q1" value="c"> c. Study of computer algorithms<br>
+        <input type="radio" name="q1" value="d"> d. Study of data structures<br>
+        <span class="marks">Marks: 1</span>
+        <label for="q2">2. What is the primary purpose of Finite Automata in Automata Theory?</label>
+        <input type="radio" name="q2" value="a"> a. Recognizing regular languages<br>
+        <input type="radio" name="q2" value="b"> b. Parsing context-free grammars<br>
+        <input type="radio" name="q2" value="c"> c. Analyzing code optimizations<br>
+        <input type="radio" name="q2" value="d"> d. Simulating Turing machines<br>
+        <span class="marks">Marks: 1</span>
+        <label for="q3">3. What is the purpose of Lexical Analysis in Compiler Design?</label>
+        <input type="radio" name="q3" value="a"> a. Detect syntax errors<br>
+        <input type="radio" name="q3" value="b"> b. Recognize tokens<br>
+        <input type="radio" name="q3" value="c"> c. Optimize code<br>
+        <input type="radio" name="q3" value="d"> d. Generate intermediate code<br>
+        <span class="marks">Marks: 1</span>
+        <h2>Module-2</h2>
+        <button type="button" onclick="evaluate()">Evaluate</button>
+    
+       
+        
+</form>
+<script>
+
+function evaluate() {
+            var correctAnswers = {
+                q1: 'b',
+                q2: 'c',
+                q3:'b'
+                // Add more correct answers as needed
+            };
+
+            var totalQuestions = Object.keys(correctAnswers).length;
+            var score = 0;
+
+            for (var i = 1; i <= totalQuestions; i++) {
+                var selectedAnswer = document.querySelector('input[name="q' + i + '"]:checked');
+
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === correctAnswers['q' + i]) {
+                        score++;
+                    }
+                }
+            }
+
+            alert('Your score: ' + score + ' out of ' + totalQuestions);
+        }
+     
+    // Set the time limit in seconds
+    const timeLimit = 2000; // 5 minutes
+
+    // Get the current time in seconds
+    const startTime = Math.floor(Date.now() / 1000);
+
+    // Calculate the end time
+    const endTime = startTime + timeLimit;
+
+    // Update the countdown every second
+    const countdownElement = document.getElementById('countdown');
+    const timerInterval = setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        const currentTime = Math.floor(Date.now() / 1000);
+        const remainingTime = endTime - currentTime;
+
+        if (remainingTime <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timedForm').innerHTML = '<h2>Time expired. Form submission is not allowed.</h2>';
+        } else {
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+            countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+    }
+
+    // Function to validate form submission
+    function validateForm() {
+        const currentTime = Math.floor(Date.now() / 1000);
+        if (currentTime >= endTime) {
+            alert('Time expired. Form submission is not allowed.');
+            return false; // Prevent form submission
+        }
+        // Add additional validation logic if needed
+        return true; // Allow form submission
+    }
+
+       
+    
+</script>
+
+</body>
+</html>

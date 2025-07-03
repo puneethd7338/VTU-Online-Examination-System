@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        /* Styling the button */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Change button color on hover */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling the exam list */
+        .exam-list {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: white;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Exam Page</h1>
+
+    <p>This is the page for the specific examination. Ensure that today is the respected date before proceeding.</p>
+
+    <!-- Replace "exam_page.html" with the actual URL of your exam page -->
+    <button onclick="checkDateAndShowExams()">Ok, Show Exams</button>
+
+    <div id="examList" class="exam-list">
+        <h2>Exams for Today</h2>
+        <p><strong>Subject:</strong> Automata and Compiler Design &nbsp;&nbsp; <strong>Subject Code:</strong> 21CS51</p>
+        <button onclick="location.href='Start.html'">Take Exam</button>
+
+    </div>
+
+    <script>
+        function checkDateAndShowExams() {
+            // Specify the allowed exam date in the format "YYYY-MM-DD"
+           
+            var allowedExamDate = "2024-01-31";
+            
+            // Get the current date
+            var currentDate = new Date().toISOString().split('T')[0];
+
+            // Check if the current date is equal to the allowed exam date
+            if (currentDate === allowedExamDate) {
+                // Show the exams for today
+                document.getElementById("examList").style.display = "block";
+            } else {
+                // Display a message if the exam is not available today
+                alert("Exams not available today. Please check the exam date.");
+            }
+        }
+    </script>
+
+</body>
+</html>
